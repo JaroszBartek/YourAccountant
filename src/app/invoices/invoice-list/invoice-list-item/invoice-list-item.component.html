@@ -1,1 +1,8 @@
-<p>invoice-list-item works!</p>
+<a href="#" class="list-group-item" (click)="onSelected()">
+    <div>
+        <h4>{{ invoiceInput.number}}</h4>
+        <p>{{ invoiceInput.date }}</p>
+        <p>{{ invoiceInput.contractor }}</p>
+        <p>{{ invoiceInput.price }}</p>
+    </div>
+</a>

@@ -1,17 +1,12 @@
 <div class="row">
     <div class="col-xs-12">
-        <button class="btn btn-success" (click)="onNewRecipe()">New Invoice</button>
+        <button class="btn btn-success" (click)="onNewInvoice()">New Invoice</button>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12 list-group">
-        <a href="#" class="list-group-item" *ngFor="let invoice of invoices">
-            <div>
-                <h4>{{ invoice.id }}</h4>
-                <p>{{ invoice.name }}</p>
-                <p>{{ invoice.address }}</p>
-            </div>
-        </a>
-        <app-invoice-list-item></app-invoice-list-item>
+        <app-invoice-list-item *ngFor="let invoice of invoices" [invoiceInput]="invoice"
+            (invoiceSelected)="onInvoiceSelected(invoice)">
+        </app-invoice-list-item>
     </div>
 </div>

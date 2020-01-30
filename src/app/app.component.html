@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-crm></app-crm>
-      <app-invoices></app-invoices>
+      <app-invoices *ngIf="loadedFeature === 'invoices'"></app-invoices>
+      <app-crm *ngIf="loadedFeature === 'crm'"></app-crm>
     </div>
   </div>
 </div>

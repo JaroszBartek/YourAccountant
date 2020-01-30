@@ -1,11 +1,13 @@
 export class Invoice {
-    public id: string;
-    public name: string;
-    public address: string;
+    public number: string;
+    public date: string;
+    public contractor: string;
+    public price: string
 
-    constructor(id: string, name: string, address: string) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
+    constructor(number: string, date: string, contractor: string, price: string) {
+        this.number = number;
+        this.date = date;
+        this.contractor = contractor;
+        this.price = price
     }
 }

@@ -1,1 +1,27 @@
-<p>contractors-edit works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <form>
+            <div class="form-row">
+                <div class="col-sm-5 form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" #nameInput>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label for="nip">Nip</label>
+                    <input type="text" class="form-control" #nipInput>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" #addressInput>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-xs-12">
+                    <button class="btn btn-success" type="button" (click)="onAddItem()">Add</button>
+                    <button class="btn btn-danger" type="button">Delete</button>
+                    <button class="btn btn-primary" type="button">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

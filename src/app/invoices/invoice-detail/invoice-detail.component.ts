@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Invoice } from '../invoice.model';
 
 @Component({
   selector: 'app-invoice-detail',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./invoice-detail.component.scss']
 })
 export class InvoiceDetailComponent implements OnInit {
-
+  @Input() invoice: Invoice;
   constructor() { }
 
   ngOnInit() {
