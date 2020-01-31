@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Contractor } from 'src/app/shared/contractor.model';
+import { Contractorsservice } from './contractors.service';
 
 @Component({
   selector: 'app-contractors',
@@ -7,17 +9,18 @@ import { Contractor } from 'src/app/shared/contractor.model';
   styleUrls: ['./contractors.component.scss']
 })
 export class ContractorsComponent implements OnInit {
-  contractors: Contractor[] = [
-    new Contractor('SE', '79522344', 'Dupowo Górne'),
-    new Contractor('KK', '22322114', 'Dupowo Dolne'),
-  ];
-  constructor() { }
+  contractors: Contractor[];
+
+  constructor(private contractorsService: Contractorsservice) { }
 
   ngOnInit() {
-  }
-
-  onContractorAdded(contractor: Contractor) {
-    this.contractors.push(contractor);
+    this.contractors = this.contractorsService.getContractors();
+    this.contractorsService.contractorChange
+    .subscribe(
+      (contractors: Contractor[] ) => {
+        this.contractors = contractors;
+      }
+    )
   }
 
 }

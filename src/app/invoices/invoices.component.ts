@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Invoice } from './invoice.model';
+import { InvoicesService } from './invoices.service';
 
 @Component({
   selector: 'app-invoices',
@@ -9,9 +10,16 @@ import { Invoice } from './invoice.model';
 })
 export class InvoicesComponent implements OnInit {
   selectedInvoice: Invoice;
-  constructor() { }
+
+  constructor(private invoicesService: InvoicesService) { }
 
   ngOnInit() {
+    this.invoicesService.invoiceSelected
+    .subscribe(
+      (invoice: Invoice) => {
+        this.selectedInvoice = invoice;
+      }
+    );
   }
 
 }
