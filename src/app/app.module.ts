@@ -12,9 +12,10 @@ import { InvoiceListItemComponent } from './invoices/invoice-list/invoice-list-i
 import { CrmComponent } from './crm/crm.component';
 import { ContractorsComponent } from './crm/contractors/contractors.component';
 import { ContractorsEditComponent } from './crm/contractors/contractors-edit/contractors-edit.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, InvoicesComponent, InvoiceListComponent, InvoiceDetailComponent, InvoiceListItemComponent, CrmComponent, ContractorsComponent, ContractorsEditComponent],
+  declarations: [AppComponent, HeaderComponent, InvoicesComponent, InvoiceListComponent, InvoiceDetailComponent, InvoiceListItemComponent, CrmComponent, ContractorsComponent, ContractorsEditComponent, AuthComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
