@@ -7,10 +7,7 @@ import { Contractor } from 'src/app/shared/contractor.model';
   styleUrls: ['./contractors.component.scss']
 })
 export class ContractorsComponent implements OnInit {
-  contractors: Contractor[] = [
-    new Contractor('SE', '79522344', 'Dupowo Górne'),
-    new Contractor('KK', '22322114', 'Dupowo Dolne'),
-  ];
+  contractors: Contractor[];
   constructor() { }
 
   ngOnInit() {
