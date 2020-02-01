@@ -5,7 +5,7 @@
 </div>
 <div class="row">
     <div class="col-xs-12 list-group">
-        <app-invoice-list-item *ngFor="let invoice of invoices" [invoiceInput]="invoice">
+        <app-invoice-list-item *ngFor="let invoice of invoices; let i = index" [invoiceInput]="invoice" [index]="i">
         </app-invoice-list-item>
     </div>
 </div>

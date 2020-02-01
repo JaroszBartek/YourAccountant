@@ -3,7 +3,7 @@
         <app-contractors-edit></app-contractors-edit>
         <hr>
         <ul class="list-group">
-            <a href="" class="list-group-item" *ngFor="let contractor of contractors">
+            <a class="list-group-item" *ngFor="let contractor of contractors">
                 {{ contractor.name }} {{ contractor.nip }} {{ contractor.address }}
             </a>
         </ul>
