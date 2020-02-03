@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { Contractor } from 'src/app/shared/contractor.model';
+import { Contractorsservice } from '../contractors.service';
 
 @Component({
   selector: 'app-contractors-edit',
@@ -11,9 +12,8 @@ export class ContractorsEditComponent implements OnInit {
   @ViewChild('nameInput', { static: false }) nameInputRef: ElementRef;
   @ViewChild('nipInput', { static: false }) nipInputRef: ElementRef;
   @ViewChild('addressInput', { static: false }) addressInputRef: ElementRef;
-  @Output() contractorAdded = new EventEmitter<Contractor>();
 
-  constructor() { }
+  constructor(private contractorsService: Contractorsservice) { }
 
   ngOnInit() {
   }
@@ -23,7 +23,7 @@ export class ContractorsEditComponent implements OnInit {
     const contrNip = this.nipInputRef.nativeElement.value;
     const contraddress = this.addressInputRef.nativeElement.value;
     const newContractor = new Contractor(contrName, contrNip, contraddress);
-    this.contractorAdded.emit(newContractor);
+    this.contractorsService.addContractor(newContractor);
   }
 
 }

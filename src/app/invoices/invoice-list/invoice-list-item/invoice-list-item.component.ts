@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
 import { Invoice } from '../../invoice.model';
+import { InvoicesService } from '../../invoices.service';
 
 @Component({
   selector: 'app-invoice-list-item',
@@ -8,13 +10,12 @@ import { Invoice } from '../../invoice.model';
 })
 export class InvoiceListItemComponent implements OnInit {
   @Input() invoiceInput: Invoice;
-  @Output() invoiceSelected = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private invoicesService: InvoicesService ) { }
 
   ngOnInit() {
   }
   onSelected() {
-    this.invoiceSelected.emit();
+    this.invoicesService.invoiceSelected.emit(this.invoiceInput);
   }
 }
