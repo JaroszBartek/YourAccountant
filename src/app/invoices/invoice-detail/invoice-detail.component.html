@@ -5,15 +5,15 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <div class="dropdown" ngbDropdown>
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
-                Menage invoices
+        <div ngbDropdown>
+            <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+                Manage invoices
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+            <div aria-labelledby="dropdownMenuButton" ngbDropdownMenu style="cursor:pointer;">
+                <a ngbDropdownItem (click)="onAddToContractorsList()">To Contractors List</a>
+                <a ngbDropdownItem (click)="onEditInvoice()">Edit</a>
+                <a ngbDropdownItem>Delete</a>
             </div>
         </div>
     </div>
@@ -26,7 +26,11 @@
     </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    {{ invoice.contractor }}
-  </div>
+    <div class="col-xs-12">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let contractor of invoice.contractors">
+                {{ contractor.name }} -{{ contractor.nip }} - {{contractor.address}}
+            </li>
+        </ul>
+    </div>
 </div>

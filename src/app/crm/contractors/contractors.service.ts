@@ -22,4 +22,9 @@ export class Contractorsservice {
     this.contractors.push(contractor);
     this.contractorChange.emit([...this.contractors]);
   }
+
+  addContractors(contractors: Contractor[]) {
+    this.contractors.push(...contractors);
+    this.contractorChange.emit([...this.contractors]);
+  }
 }

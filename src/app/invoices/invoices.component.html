@@ -3,7 +3,6 @@
         <app-invoice-list></app-invoice-list>
     </div>
     <div class="col-md-7">
-        <app-invoice-detail *ngIf="selectedInvoice" [invoice]="selectedInvoice">
-        </app-invoice-detail>
+        <router-outlet></router-outlet>
     </div>
 </div>
