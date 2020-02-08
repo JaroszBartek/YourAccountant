@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Contractor } from 'src/app/shared/contractor.model';
 import { Contractorsservice } from '../contractors.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contractors-edit',
@@ -9,20 +10,15 @@ import { Contractorsservice } from '../contractors.service';
   styleUrls: ['./contractors-edit.component.scss']
 })
 export class ContractorsEditComponent implements OnInit {
-  @ViewChild('nameInput', { static: false }) nameInputRef: ElementRef;
-  @ViewChild('nipInput', { static: false }) nipInputRef: ElementRef;
-  @ViewChild('addressInput', { static: false }) addressInputRef: ElementRef;
 
   constructor(private contractorsService: Contractorsservice) { }
 
   ngOnInit() {
   }
 
-  onAddItem() {
-    const contrName = this.nameInputRef.nativeElement.value;
-    const contrNip = this.nipInputRef.nativeElement.value;
-    const contraddress = this.addressInputRef.nativeElement.value;
-    const newContractor = new Contractor(contrName, contrNip, contraddress);
+  onSubmit(form: NgForm) {
+    const value = form.value
+    const newContractor = new Contractor(value.name, value.nip, value.address);
     this.contractorsService.addContractor(newContractor);
   }
 
